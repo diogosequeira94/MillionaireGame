@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/questionsbg"
+    tools:context=".Game.GameLogic">
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:id="@+id/score"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:text="Score: 0" />
+
+    <TextView
+        android:id="@+id/question"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/answer1"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/score"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/answer4"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/shape"
+        android:layout_centerHorizontal="true"
+        android:text="answer4" />
+
+    <Button
+        android:id="@+id/answer3"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape"
+        android:textColor="#FFFFFF"
+        android:layout_above="@+id/answer4"
+        android:text="answer3" />
+
+    <Button
+        android:id="@+id/answer2"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/answer3"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/shape"
+        android:text="answer2" />
+
+    <Button
+        android:id="@+id/answer1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_above="@id/answer2"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+
+        android:background="@drawable/shape"
+        android:text="answer1" />
+
+    <ImageView
+        android:id="@+id/pictureQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image1"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/help"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/ic_help_black_24dp"
+        tools:ignore="VectorDrawableCompat"
+        android:layout_alignRight="@+id/score"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"/>
+
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:layout_alignLeft="@id/score"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:text="10" />
+
+    <ImageView
+        android:id="@+id/image50"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/help"
+        android:layout_alignRight="@id/score"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        app:srcCompat="@drawable/minusorange_24dp"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageView
+        android:id="@+id/swap"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/ic_refresh_black_24dp"
+        android:layout_alignRight="@id/score"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/image50"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageView
+        android:id="@+id/person"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignRight="@id/score"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/swap"
+        app:srcCompat="@drawable/ic_person_black_24dp"
+        tools:ignore="VectorDrawableCompat" />
+
+    <!--  <com.google.android.material.bottomnavigation.BottomNavigationView
+          android:id="@+id/bottom_navigation"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true"
+          android:background="?android:attr/windowBackground"
+          app:menu="@menu/bottom_navigation"
+
+
+
+      </com.google.android.material.bottomnavigation.BottomNavigationView>
+      > -->
+
+</RelativeLayout>
