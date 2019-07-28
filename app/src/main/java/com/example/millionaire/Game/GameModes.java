@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.millionaire.R;
+import com.example.millionaire.Utils.LoadingPage;
 
 public class GameModes extends AppCompatActivity {
 
@@ -26,7 +27,7 @@ public class GameModes extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), ChallengerQuestionsLogic.class));
+                startActivity(new Intent(getApplicationContext(), LoadingPage.class));
             }
         });
 
