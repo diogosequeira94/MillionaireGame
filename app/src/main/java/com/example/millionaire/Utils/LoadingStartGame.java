@@ -11,9 +11,10 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.example.millionaire.Game.ChallengerQuestionsLogic;
+import com.example.millionaire.Game.GameLogic;
 import com.example.millionaire.R;
 
-public class LoadingPage extends AppCompatActivity {
+public class LoadingStartGame extends AppCompatActivity {
 
     private ProgressBar progressBar;
     private ObjectAnimator progressAnimator;
@@ -21,7 +22,7 @@ public class LoadingPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loading_page);
+        setContentView(R.layout.activity_loading_start_game);
 
         getSupportActionBar().hide();
 
@@ -35,8 +36,8 @@ public class LoadingPage extends AppCompatActivity {
             public void onAnimationEnd(Animator animation) {
                 System.out.println("Done");
                 super.onAnimationEnd(animation);
-                progressBar.setVisibility(View.GONE);
                 startActivity();
+                progressBar.setVisibility(View.GONE);
                 finish();
             }
         });
@@ -46,10 +47,10 @@ public class LoadingPage extends AppCompatActivity {
     private void init(){
 
         progressBar = findViewById(R.id.progressBar);
-        progressAnimator = ObjectAnimator.ofInt(progressBar, "progress",0,100);
+        progressAnimator = ObjectAnimator.ofInt(progressBar, "progress",0,120);
     }
 
     private void startActivity(){
-        startActivity(new Intent(getApplicationContext(), ChallengerQuestionsLogic.class));
+        startActivity(new Intent(getApplicationContext(), GameLogic.class));
     }
 }

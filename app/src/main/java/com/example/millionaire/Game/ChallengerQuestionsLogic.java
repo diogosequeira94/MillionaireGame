@@ -2,16 +2,22 @@ package com.example.millionaire.Game;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.droidbyme.dialoglib.AnimUtils;
+import com.droidbyme.dialoglib.DroidDialog;
 import com.example.millionaire.QuestionTypes.ChallengerQuestions;
 import com.example.millionaire.R;
 import com.example.millionaire.TriviaPages.HomePage;
@@ -34,6 +40,9 @@ public class ChallengerQuestionsLogic extends AppCompatActivity implements View.
         setContentView(R.layout.activity_hard_questions_test);
 
         getSupportActionBar().hide();
+
+        //Add the elements to the array.
+        challengerQuestions.addElements();
 
         mediaPlayer = MediaPlayer.create(this, R.raw.challenger);
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -60,18 +69,25 @@ public class ChallengerQuestionsLogic extends AppCompatActivity implements View.
 
     public void updateQuestion(){
 
-        int arraySize = challengerQuestions.getQuestion().size();
-        int randomNumber = (int) Math.floor(Math.random() * arraySize);
 
-        if(repeatedQuestions.size() == arraySize){
+        int randomNumber = (int) Math.floor(Math.random() * challengerQuestions.sizeOf());
+
+        System.out.println(randomNumber);
+
+
+        if(repeatedQuestions.size() == challengerQuestions.sizeOf()){
             winner();
 
         } else if(repeatedQuestions.contains(randomNumber)){
+
             updateQuestion();
 
         } else {
 
-            rightAnswer = challengerQuestions.getQuestion().get(randomNumber).getRightAnswer();
+           /* if(challengerQuestions.getQuestion().get(randomNumber).getQuestionToask().length() > 35 ){
+                textView.setGravity(Gravity.CENTER);
+            }*/
+
 
             textView.setText(challengerQuestions.getQuestion().get(randomNumber).getQuestionToask());
 
@@ -80,18 +96,18 @@ public class ChallengerQuestionsLogic extends AppCompatActivity implements View.
             an3.setText(challengerQuestions.getQuestion().get(randomNumber).getAnswer3());
             an4.setText(challengerQuestions.getQuestion().get(randomNumber).getAnswer4());
 
+            rightAnswer = challengerQuestions.getQuestion().get(randomNumber).getRightAnswer();
             if(!repeatedQuestions.contains(randomNumber)){
+
                 repeatedQuestions.add(randomNumber);
+
+                }
             }
+
+
 
         }
 
-
-
-
-
-
-    }
 
     @Override
     public void onClick(View view) {
@@ -144,6 +160,7 @@ public class ChallengerQuestionsLogic extends AppCompatActivity implements View.
         mediaPlayer2.setAudioStreamType(AudioManager.STREAM_MUSIC);
         mediaPlayer2.start();
 
+
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ChallengerQuestionsLogic.this, R.style.AlertDialogStyle);
         alertDialogBuilder.setMessage("Game Over!")
                 .setCancelable(false)
@@ -168,7 +185,6 @@ public class ChallengerQuestionsLogic extends AppCompatActivity implements View.
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
 
-
     }
 
     @Override
@@ -184,6 +200,11 @@ public class ChallengerQuestionsLogic extends AppCompatActivity implements View.
 
     public void winner(){
 
+        mediaPlayer.stop();
+        MediaPlayer mediaPlayer2 = new MediaPlayer();
+        mediaPlayer2 = MediaPlayer.create(getApplicationContext(), R.raw.yay);
+        mediaPlayer2.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mediaPlayer2.start();
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ChallengerQuestionsLogic.this,R.style.AlertDialogStyle);
         alertDialogBuilder.setMessage("You won the game!")

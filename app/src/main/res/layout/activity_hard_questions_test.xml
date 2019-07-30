@@ -9,6 +9,7 @@ android:orientation="vertical"
     tools:context=".Game.ChallengerQuestionsLogic">
 
     <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -33,73 +34,69 @@ android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center|bottom"
-            android:gravity="bottom">
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/ans1"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/shape3"
                 android:layout_centerHorizontal="true"
-                android:text="answer1" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/shape3"
+                android:text="answer1"
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/ans2"
-                android:layout_centerHorizontal="true"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/shape2"
-                android:textColor="#FFFFFF"
                 android:layout_above="@+id/answer4"
-                android:text="ans2" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/shape2"
+                android:text="ans2"
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/ans3"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_centerHorizontal="true"
-                android:layout_above="@+id/answer3"
                 android:layout_height="wrap_content"
-                android:textColor="#FFFFFF"
+                android:layout_above="@+id/answer3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/shape3"
-                android:text="answer3" />
+                android:text="answer3"
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/ans4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/answer2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_width="match_parent"
-                android:layout_above="@id/answer2"
                 android:layout_marginBottom="20dp"
-                android:layout_height="wrap_content"
-                android:textColor="#FFFFFF"
-
                 android:background="@drawable/shape2"
-                android:text="answer4" />
 
-
-
+                android:text="answer4"
+                android:textColor="#FFFFFF" />
 
 
         </LinearLayout>
-
 
 
     </LinearLayout>

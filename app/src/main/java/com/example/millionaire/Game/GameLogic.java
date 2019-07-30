@@ -218,7 +218,7 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
 
         currentQuestion = num;
 
-        long targetMillis = CountDownTask.elapsedRealtime() + 1000 * 20;
+        long targetMillis = CountDownTask.elapsedRealtime() + 1000 * 45;
 
         countDownTask.until(counter, targetMillis, CD_INTERVAL, new CountDownTimers.OnCountDownListener() {
             @Override
@@ -362,6 +362,13 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
     @Override
     public void winner(){
 
+        mediaPlayer.stop();
+        MediaPlayer mediaPlayer2 = new MediaPlayer();
+        mediaPlayer2 = MediaPlayer.create(getApplicationContext(), R.raw.yay);
+        mediaPlayer2.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mediaPlayer2.start();
+
+
         countDownTask.cancel();
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(GameLogic.this,R.style.AlertDialogStyle);
@@ -435,7 +442,7 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
                     mediaPlayer.start();
                 }
                 //your code start with delay in one second after calling this method
-            }, DELAY * 3);
+            }, DELAY *1);
 
         }
 

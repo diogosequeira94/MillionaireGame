@@ -6,13 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.millionaire.R;
+import com.example.millionaire.TriviaPages.HomePage;
 import com.example.millionaire.Utils.LoadingPage;
 
 public class GameModes extends AppCompatActivity {
 
-    Button button, button2;
+   private Button button, button2;
+   private ImageView arrow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +26,23 @@ public class GameModes extends AppCompatActivity {
 
         button = findViewById(R.id.button);
         button2 = findViewById(R.id.button2);
+        arrow = findViewById(R.id.arrow);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), LoadingPage.class));
+                finish();
             }
         });
 
+        arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), HomePage.class));
+                finish();
+            }
+        });
 
 
     }

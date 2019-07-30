@@ -31,6 +31,7 @@ dependencies {
     implementation 'com.github.erehmi:countdowntask:1.0.1'
 
     implementation 'com.github.lzyzsd:circleprogress:1.2.1'
+    implementation 'com.github.droidbyme:DroidDialog:1d3d30d4ef'
 
     implementation 'com.github.medyo:fancybuttons:1.9.1'
 

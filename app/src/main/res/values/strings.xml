@@ -2,4 +2,5 @@
     <string name="app_name">WHILEdcardsApp</string>
     <string name="rules_of">Rules of the Game \'Who Wants to Be a Millionaire\'</string>
     <string name="explanation">Who Wants to Be a Millionaire? is a quiz competition where contestants have to correctly answer a series of multiple-choice questions in order to advance to the next level / question. There are 15 questions in total in the original version and each question is worth a specific amount of money and there is time limit placed on contestants to come up with an answer. Contestants also get three Lifelines to assist them if they get stuck on a particular question. The Who Wants to Be a Millionaire questions are structured according to five different Levels with each level increasing in difficulty. Each level contains three questions. Questions that are grouped into the same level will all be of similar difficulty.</string>
+    <string name="_2019_all_rights_reserved_174">2019 All rights reserved "\u00AE"</string>
 </resources>

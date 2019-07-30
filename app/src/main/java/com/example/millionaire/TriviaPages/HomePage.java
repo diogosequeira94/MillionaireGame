@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.millionaire.Game.GameLogic;
 import com.example.millionaire.Game.GameModes;
 import com.example.millionaire.R;
+import com.example.millionaire.Utils.LoadingStartGame;
 
 public class HomePage extends AppCompatActivity {
 
@@ -47,8 +48,8 @@ public class HomePage extends AppCompatActivity {
                 mediaPlayer2.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 mediaPlayer2.start();
 
-                startActivity(new Intent(getApplicationContext(), GameLogic.class));
-                finish();
+                startActivity(new Intent(getApplicationContext(), LoadingStartGame.class));
+
             }
         });
 
