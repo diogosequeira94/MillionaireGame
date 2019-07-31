@@ -28,11 +28,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.google.android.material:material:1.0.0-rc01'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
     implementation 'com.github.erehmi:countdowntask:1.0.1'
-
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.github.lzyzsd:circleprogress:1.2.1'
     implementation 'com.github.droidbyme:DroidDialog:1d3d30d4ef'
-
     implementation 'com.github.medyo:fancybuttons:1.9.1'
 
 }
