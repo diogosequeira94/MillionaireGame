@@ -102,7 +102,7 @@ public class HomePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
 
         switch (menuItem.getItemId()){
             case R.id.myProfile:
-                Toast.makeText(this, "Shows Profile", Toast.LENGTH_SHORT).show();
+              startActivity(new Intent(getApplicationContext(), UserProfile.class));
                 return true;
             case R.id.settingsOption:
                 Toast.makeText(this, "Shows Settings", Toast.LENGTH_SHORT).show();
