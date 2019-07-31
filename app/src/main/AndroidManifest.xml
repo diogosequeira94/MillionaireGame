@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/frontlogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Utils.LoadingStartGame"></activity>
+        <activity android:name=".Utils.GoogleLogin"></activity>
+        <activity android:name=".Utils.LoadingStartGame" />
         <activity android:name=".Utils.LoadingPage" />
         <activity android:name=".Game.ChallengerQuestionsLogic" />
         <activity android:name=".TriviaPages.Instructions" />
