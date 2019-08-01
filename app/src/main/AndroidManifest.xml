@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/frontlogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TriviaPages.UserProfile"></activity>
+        <activity android:name=".Utils.LandingPage" />
+        <activity android:name=".TriviaPages.UserProfile" />
         <activity android:name=".Utils.SplashScreen" />
         <activity android:name=".Utils.LoadingStartGame" />
         <activity android:name=".Utils.LoadingPage" />
