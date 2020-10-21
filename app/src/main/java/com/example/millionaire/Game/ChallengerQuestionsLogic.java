@@ -3,7 +3,6 @@ package com.example.millionaire.Game;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,14 +14,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.droidbyme.dialoglib.AnimUtils;
 import com.droidbyme.dialoglib.DroidDialog;
 import com.example.millionaire.QuestionTypes.ChallengerQuestions;
 import com.example.millionaire.R;
 import com.example.millionaire.TriviaPages.HomePage;
 import com.example.millionaire.Utils.WinnerPage;
-
 import java.util.ArrayList;
 
 public class ChallengerQuestionsLogic extends AppCompatActivity implements View.OnClickListener {
@@ -61,54 +58,30 @@ public class ChallengerQuestionsLogic extends AppCompatActivity implements View.
         an4.setOnClickListener(this);
 
         updateQuestion();
-
     }
 
-
-
-
     public void updateQuestion(){
-
-
+        
         int randomNumber = (int) Math.floor(Math.random() * challengerQuestions.sizeOf());
-
         System.out.println(randomNumber);
-
 
         if(repeatedQuestions.size() == challengerQuestions.sizeOf()){
             winner();
-
         } else if(repeatedQuestions.contains(randomNumber)){
-
             updateQuestion();
-
         } else {
-
-           /* if(challengerQuestions.getQuestion().get(randomNumber).getQuestionToask().length() > 35 ){
-                textView.setGravity(Gravity.CENTER);
-            }*/
-
-
             textView.setText(challengerQuestions.getQuestion().get(randomNumber).getQuestionToask());
-
             an1.setText(challengerQuestions.getQuestion().get(randomNumber).getAnswer1());
             an2.setText(challengerQuestions.getQuestion().get(randomNumber).getAnswer2());
             an3.setText(challengerQuestions.getQuestion().get(randomNumber).getAnswer3());
             an4.setText(challengerQuestions.getQuestion().get(randomNumber).getAnswer4());
-
             rightAnswer = challengerQuestions.getQuestion().get(randomNumber).getRightAnswer();
             if(!repeatedQuestions.contains(randomNumber)){
-
                 repeatedQuestions.add(randomNumber);
-
                 }
             }
-
-
-
         }
-
-
+    
     @Override
     public void onClick(View view) {
 
@@ -117,16 +90,13 @@ public class ChallengerQuestionsLogic extends AppCompatActivity implements View.
                 if(an1.getText() == rightAnswer){
                     updateQuestion();
                 } else {
-
                     gameOver();
                 }
-
                 break;
             case R.id.ans2:
                 if(an2.getText() == rightAnswer){
                     updateQuestion();
                 } else {
-
                     gameOver();
                 }
                 break;
@@ -134,16 +104,13 @@ public class ChallengerQuestionsLogic extends AppCompatActivity implements View.
                 if(an3.getText() == rightAnswer){
                     updateQuestion();
                 } else {
-
                     gameOver();
                 }
                 break;
-
             case R.id.ans4:
                 if(an4.getText() == rightAnswer){
                     updateQuestion();
                 } else {
-
                     gameOver();
                 }
                 break;
@@ -152,14 +119,12 @@ public class ChallengerQuestionsLogic extends AppCompatActivity implements View.
 
 
     private void gameOver(){
-
+        
         mediaPlayer.stop();
-
         MediaPlayer mediaPlayer2 = new MediaPlayer();
         mediaPlayer2 = MediaPlayer.create(getApplicationContext(), R.raw.wrong);
         mediaPlayer2.setAudioStreamType(AudioManager.STREAM_MUSIC);
         mediaPlayer2.start();
-
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ChallengerQuestionsLogic.this, R.style.AlertDialogStyle);
         alertDialogBuilder.setMessage("Game Over!")
@@ -184,14 +149,11 @@ public class ChallengerQuestionsLogic extends AppCompatActivity implements View.
 
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
-
     }
 
     @Override
     protected void onDestroy() {
-
         super.onDestroy();
-
         mediaPlayer.stop();
         mediaPlayer.reset();
         mediaPlayer.release();
@@ -199,7 +161,6 @@ public class ChallengerQuestionsLogic extends AppCompatActivity implements View.
     }
 
     public void winner(){
-
         mediaPlayer.stop();
         MediaPlayer mediaPlayer2 = new MediaPlayer();
         mediaPlayer2 = MediaPlayer.create(getApplicationContext(), R.raw.yay);
@@ -242,12 +203,9 @@ public class ChallengerQuestionsLogic extends AppCompatActivity implements View.
     }
 
     private void startAgain(){
-
         for(int i = 0; i < repeatedQuestions.size(); i++){
             repeatedQuestions.remove(i);
         }
         updateQuestion();
-
     }
-
 }
