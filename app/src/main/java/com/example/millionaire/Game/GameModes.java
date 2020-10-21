@@ -2,13 +2,11 @@ package com.example.millionaire.Game;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import com.example.millionaire.R;
 import com.example.millionaire.Fragments.ListaFragment;
 import com.example.millionaire.TriviaPages.HomePage;
@@ -56,7 +54,5 @@ public class GameModes extends AppCompatActivity {
                 fragmentTransaction.commit();
             }
         });
-
-
     }
 }
