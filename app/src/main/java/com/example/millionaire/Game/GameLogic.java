@@ -2,7 +2,6 @@ package com.example.millionaire.Game;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.AudioManager;
@@ -14,16 +13,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.millionaire.TriviaPages.HomePage;
 import com.example.millionaire.QuestionTypes.ImageQuestions;
 import com.example.millionaire.QuestionTypes.Questions;
 import com.example.millionaire.R;
 import com.example.millionaire.Utils.WinnerPage;
-
 import java.util.ArrayList;
 import java.util.Random;
-
 import io.github.erehmi.countdown.CountDownTask;
 import io.github.erehmi.countdown.CountDownTimers;
 
@@ -63,11 +59,6 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
 
         //Music for the game
         playAudioWithDelay();
-
-       /* //Creating BottomNavigationView
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(navListener); */
-
 
        //Start Game
         updateQuestion();
@@ -134,18 +125,13 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
                     countDownTask.cancel();
                     gameOver();
                 }
-
-
             }
         });
 
         answer3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 if(answer3.getText() == mAnswers){
-
                     mScore++;
                     score.setText("Score: " + mScore);
                     updateQuestion();
@@ -153,36 +139,27 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
                     countDownTask.cancel();
                     gameOver();
                 }
-
             }
         });
 
-        answer4.setOnClickListener(new View.OnClickListener() {
+     answer4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 if(answer4.getText() == mAnswers){
-
                     mScore++;
                     score.setText("Score: " + mScore);
                     updateQuestion();
-
                 } else {
                     countDownTask.cancel();
                     gameOver();
                 }
             }
         });
-
     }
-
 
     @Override
     protected void onDestroy() {
-
         super.onDestroy();
-
         mediaPlayer.stop();
         mediaPlayer.reset();
         mediaPlayer.release();
@@ -190,7 +167,6 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
     }
 
     private void initViews(){
-
         //Helps
         pictureQuestion = findViewById(R.id.pictureQuestion);
         image50 = findViewById(R.id.image50);
@@ -213,13 +189,10 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
     }
     @Override
     public void updateQuestion(){
-
+   
         int num = (int) Math.floor(Math.random() * mQuestionsLenght);
-
         currentQuestion = num;
-
         long targetMillis = CountDownTask.elapsedRealtime() + 1000 * 45;
-
         countDownTask.until(counter, targetMillis, CD_INTERVAL, new CountDownTimers.OnCountDownListener() {
             @Override
             public void onTick(View view, long millisUntilFinished) {
@@ -232,20 +205,11 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
             }
         });
 
-      //  int questionType = (int) Math.floor(Math.random() * 10);
-
-       // if(questionType > 4){
-
-            if(repeatedQuestions.size() == mQuestionsLenght){
+        if(repeatedQuestions.size() == mQuestionsLenght){
                 winner();
-
             } else if (repeatedQuestions.contains(num)){
-
-
                 System.out.println("The new number is: " + num);
                 updateQuestion();
-
-
             } else {
                 question.setText(mQuestions.getQuestion(num));
                 answer1.setText(mQuestions.getChoice1(num));
@@ -259,42 +223,19 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
                     repeatedQuestions.add(num);
                 }
             }
-
-     /*   } else {
-
-            int id = getResources().getIdentifier("res:drawable/image" + num, null, null);
-
-            pictureQuestion.setImageResource(id);
-
-            pictureQuestion.setVisibility(View.VISIBLE);
-            answer1.setText(imageQuestions.getChoice1(num));
-            answer2.setText(imageQuestions.getChoice2(num));
-            answer3.setText(imageQuestions.getChoice3(num));
-            answer4.setText(imageQuestions.getChoice4(num));
-
-            imageAnswers = imageQuestions.getCorrectAnswer(num);
-
-
-        }
-*/
     }
 
     private void swapQuestion(){
-
-            updateQuestion();
-            repeatedQuestions.remove(repeatedQuestions.size() -2);
-            swap.setVisibility(View.INVISIBLE);
-
-
+           updateQuestion();
+           repeatedQuestions.remove(repeatedQuestions.size() -2);
+           swap.setVisibility(View.INVISIBLE);
     }
 
     private void help50(){
-
         //THIS IS A METHOD FOR 50-50
+          Toast.makeText(getApplicationContext(), "Done", Toast.LENGTH_SHORT);
 
-                Toast.makeText(getApplicationContext(), "Done", Toast.LENGTH_SHORT);
-
-                if (timeshelped != 1){
+            if (timeshelped != 1){
 
                     Button[] answers = {answer1, answer2, answer3, answer4};
 
@@ -308,10 +249,8 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
                             if(!answers[randomHelp].getText().equals(mAnswers)){
                                 answers[randomHelp].setText("");
                                 answersChanged++;
-
                             }
                         }
-
                     }
 
                     timeshelped++;
@@ -320,7 +259,6 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
                     Toast.makeText(getApplicationContext(), "You have used this help! already!", Toast.LENGTH_SHORT).show();
                 }
                     image50.setVisibility(View.INVISIBLE);
-
                 }
 
     @Override
@@ -356,21 +294,17 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
 
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
-
-
     }
+    
     @Override
     public void winner(){
-
         mediaPlayer.stop();
         MediaPlayer mediaPlayer2 = new MediaPlayer();
         mediaPlayer2 = MediaPlayer.create(getApplicationContext(), R.raw.yay);
         mediaPlayer2.setAudioStreamType(AudioManager.STREAM_MUSIC);
         mediaPlayer2.start();
-
-
         countDownTask.cancel();
-
+        
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(GameLogic.this,R.style.AlertDialogStyle);
         alertDialogBuilder.setMessage("You won the game!")
                 .setCancelable(false)
@@ -392,7 +326,6 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
                             }
                         })
 
-
                 .setNeutralButton("EXIT",
                         new DialogInterface.OnClickListener() {
                             @Override
@@ -405,21 +338,15 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
-
-
+    
     @Override
     public void startAgain(){
-
-
         mScore = 0;
         score.setText("Score: " + mScore);
-
-
         for(int i = 0; i < repeatedQuestions.size(); i++){
             repeatedQuestions.remove(i);
         }
         updateQuestion();
-
     }
 
     @Override
@@ -429,8 +356,8 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
         finish();
 
     }
-
-        public void playAudioWithDelay(){
+    
+    public void playAudioWithDelay(){
         Handler handler = new Handler();
             handler.postDelayed(new Runnable(){
                 @Override
@@ -445,8 +372,6 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
             }, DELAY *1);
 
         }
-
-
 
     private void helpDialog() {
         final String[] colors = {"Robin", "Audrey", "Rolo", "Christina"};
@@ -485,53 +410,10 @@ public class GameLogic extends AppCompatActivity implements GameLogicInterface {
                     case 3:
                         Toast.makeText(getApplicationContext(), "Not done yet", Toast.LENGTH_SHORT).show();
                         break;
-
-
-
-
                 }
 
             }
         });
         builder2.show();
+      }
     }
-
- /*   //Creating NavListener
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-                    switch (menuItem.getItemId()){
-                        case R.id.nav_home:
-                            Toast.makeText(getApplicationContext(), "Item 1", Toast.LENGTH_SHORT).show();
-                            break;
-
-                        case R.id.nav_file:
-                            Toast.makeText(getApplicationContext(), "Item 1", Toast.LENGTH_SHORT).show();
-
-                            break;
-                        case R.id.nav_favourites:
-                            Toast.makeText(getApplicationContext(), "Item 1", Toast.LENGTH_SHORT).show();
-
-
-                            break;
-
-                        case R.id.nav_settings:
-                            Toast.makeText(getApplicationContext(), "Item 1", Toast.LENGTH_SHORT).show();
-
-
-                            break;
-
-
-                    }
-
-
-                    return true;
-                }
-
-            }; */
-
-    }
-
-
