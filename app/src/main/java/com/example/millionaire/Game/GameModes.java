@@ -24,7 +24,7 @@ public class GameModes extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        button = findViewById(R.id.button);
+        button = findViewById(R.id.challengerModeBtn);
         button2 = findViewById(R.id.button5);
         arrow = findViewById(R.id.arrow);
 
